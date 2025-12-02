@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+body {
+    font-family: 'Press Start 2P', cursive;
+}
+
+#header{
+    background-image: url("images/pokemon_background.jpg");
+    background-size: cover;
+    background-position: center;
+
+    text-align: center;
+    color: rgb(251, 235, 13);
+
+    text-shadow:
+        -5px -5px 0 rgb(34, 74, 216),
+         5px -5px 0 rgb(34, 74, 216),
+        -5px  5px 0 rgb(34, 74, 216),
+         5px  5px 0 rgb(34, 74, 216);
+
+    font-size: 38px;
+
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 2px solid black;
+}
+
+#top-navigation a {
+    color: black;
+    margin: 0 8px;
+    font-size: 14px;
+}
+
+#title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+#layout {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+#navigation {
+    border-right: 2px solid black;
+}
+
+#navigation a {
+    text-align: center;
+    display: block;
+    padding-top: 20px;
+    margin: 20px 50px 50px 50px;
+    color: black;
+    font-size: 14px;
+}
+
+#content {
+    font-family: 'Montserrat', sans-serif;
+    padding: 30px;
+}
