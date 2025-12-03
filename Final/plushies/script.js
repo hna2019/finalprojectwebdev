@@ -62,6 +62,7 @@ function total() {
 }
 
 form.addEventListener("submit", function(event){
+    // event.preventDefault();
     const receiptHTML = receipt();
     if (!receiptHTML) return;
     const receiptWindow = window.open("", "_blank");
