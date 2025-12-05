@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
-/* --- Home Page --- */
+
 body {
     font-family: 'Press Start 2P', cursive;
 }
@@ -135,7 +135,7 @@ body {
     margin: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1096px) {
     #shopping_cart {
         flex-direction: column; 
     }

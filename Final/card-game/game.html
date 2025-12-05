@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Pokémon Type Battle</title>
+    <style>
+
+        #content {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
+
+        #typeChoices img, #playerAttackChoices img {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            border: 2px solid white;
+            border-radius: 6px;
+            margin: 5px;
+        }
+
+        #opponentTypes img {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+        }
+
+        #selectedTypes span {
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        #leaderboardContainer {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #leaderboardList {
+            list-style: none;
+        }
+
+        #leaderboardList li {
+            font-weight: bold;
+        }
+
+        @media (max-width: 1096px) {
+            #content {
+                justify-content: flex-start; 
+                padding: 50px 20px 20px 20px; 
+                min-height: auto;
+            }
+
+            .screen {
+                margin-top: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<header id="header">
+    <h1>Pokémon</h1>
+</header>
+
+<div id="top">
+    <nav id="top-navigation">
+        <a href="signup.php">Sign Up</a>
+        <a href="login.php">Login</a>
+    </nav>
+    <h3 id="title">Pokemon Type Game</h3>
+</div>
+
+<div id="layout">
+    <nav id="navigation">
+        <a href="../index.html">Home</a>
+        <a href="../contact/contact.html">Contact</a>
+        <a href="../card-game/game.html">Typing Game</a>
+        <a href="../plushies/shopping.html">Plushies</a>
+    </nav>
+
+    <main id="content">
+        <div id="gameStart" class="screen" style="display:flex;">
+            <h2>Pokémon Type Battle!</h2>
+            <p>In this game, you will be presented with different types you can select from to bring into battle with you. Feel free to choose that type multiple times. Your opponent will also make a selection. In battle, if a type wins a battle, you can select it again. If it draws or loses a battle, you can no longer use that type unless you brought multiple of that type. In a battle, you do not know what types your opponent will send out, but you can see what types they have. This is similar to rock paper scissors. Experiment to see what types are effective against different types. Try to amass a winstreak to be placed on the leaderboard!</p>
+            <p>Select difficulty to start:</p>
+            <div id="difficultySelection">
+                <button class="difficultyBtn" data-difficulty="normal">Normal (3 Types)</button>
+                <button class="difficultyBtn" data-difficulty="hard">Hard (6 Types)</button>
+            </div>
+        </div>
+
+        <div id="selection" class="screen">
+            <h2>Select Your Pokémon Types</h2>
+            <div id="typeChoices"></div>
+            <p>Selected: <span id="selectedCount">0</span> / <span id="maxSelection">3</span></p>
+            <div id="selectedTypes"></div>
+            <button id="confirmSelection" disabled>Confirm Selection</button>
+        </div>
+
+        <div id="battle" class="screen">
+            <h2>Battle!</h2>
+            <p>Opponent's Team:</p>
+            <div id="opponentTypes"></div>
+
+            <p>Your Move:</p>
+            <div id="playerAttackChoices"></div>
+
+            <p id="roundResult" style="color: yellow;"></p>
+        </div>
+
+        <div id="gameEnd" class="screen">
+            <h2 id="resultMessage"></h2>
+            <button id="restartBtn">Play Again</button>
+
+            <div id="leaderboardContainer">
+                <h3>Leaderboard</h3>
+                <ul id="leaderboardList"></ul>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
