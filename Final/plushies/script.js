@@ -63,7 +63,7 @@ function total() {
 
 form.addEventListener("submit", function(event){
     // event.preventDefault();
-    const receiptHTML = receipt();
+    const receiptHTML = receipt(event);
     if (!receiptHTML) return;
     const receiptWindow = window.open("", "_blank");
     receiptWindow.document.write(receiptHTML);
@@ -71,7 +71,7 @@ form.addEventListener("submit", function(event){
    
 });
 
-function receipt(){
+function receipt(event){
     const name = document.getElementById("name");
     const email = document.getElementById("email");
     const address = document.getElementById("address");
@@ -80,6 +80,7 @@ function receipt(){
     const credit = document.getElementById("credit");
 
     if (!name.value){
+        event.preventDefault();
         alert("Name is required");
         name.focus();
         name.select();
@@ -87,6 +88,7 @@ function receipt(){
         return;
     }
     if (!email.value){
+        event.preventDefault();
         alert("Email is required");
         email.focus();
         email.select();
@@ -94,6 +96,7 @@ function receipt(){
         return;
     }
     if (!address.value){
+        event.preventDefault();
         alert("Address is required");
         address.focus();
         address.select();
@@ -101,6 +104,7 @@ function receipt(){
         return;
     }
     if (!phone.value){
+        event.preventDefault();
         alert("Phone number is required");
         phone.focus();
         phone.select();
@@ -108,6 +112,7 @@ function receipt(){
         return;
     }
     if (!zip.value){
+        event.preventDefault();
         alert("Zip code is required");
         zip.focus();
         zip.select();
@@ -115,6 +120,7 @@ function receipt(){
         return;
     }
     if (!credit.value){
+        event.preventDefault();
         alert("Credit card info is required");
         credit.focus();
         credit.select();
