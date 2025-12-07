@@ -1,3 +1,5 @@
+/* --- Used for opening and closing the navigation menu on mobile --- */
+
 let svg = document.querySelector(".svg");
 let nav = document.querySelector("#navigation");
 let isOpen = false;

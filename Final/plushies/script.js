@@ -79,6 +79,7 @@ function receipt(event){
     const zip = document.getElementById("zip");
     const credit = document.getElementById("credit");
 
+    /* --- Ensures Required Fields Are Filled --- */
     if (!name.value){
         event.preventDefault();
         alert("Name is required");
