@@ -124,6 +124,16 @@ body {
     margin: 15px;
 }
 
+/* --- PHP styling --- */
+#receipt{
+    padding-left: 20px;
+    padding-top: 1px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 /* --- Media Queries --- */
 
 @media (max-width: 768px) {
@@ -169,6 +179,8 @@ body {
     #top-navigation {
         order: 1; 
     }
+
+    /* --- SVG --- */
 
     #svg_container {
         display: flex;

@@ -65,9 +65,9 @@ form.addEventListener("submit", function(event){
     // event.preventDefault();
     const receiptHTML = receipt(event);
     if (!receiptHTML) return;
-    const receiptWindow = window.open("", "_blank");
-    receiptWindow.document.write(receiptHTML);
-    receiptWindow.document.close();
+    //const receiptWindow = window.open("", "_blank");
+    //receiptWindow.document.write(receiptHTML);
+    //receiptWindow.document.close();
    
 });
 

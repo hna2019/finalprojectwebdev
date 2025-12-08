@@ -9,7 +9,7 @@
 
 <?php
 
-echo "<p>Thanks for your purchase!</p>";
+print("<div id = 'header'>Receipt</div>");
 
 $q0 = $_POST['q0'];
 $q1 = $_POST['q1'];
@@ -50,7 +50,7 @@ try {
 	$path = "/home/kd2684/databases";
 	$db = new SQLite3($path . '/orders.db'); //SUBMIT THIS PATH
 	//$db = new SQLite3('orders.db'); //FOR TESTING PURPOSES ONLY
-	echo "Successfully connected to the orders.db <br>";
+	//echo "Successfully connected to the orders.db <br>";
 } catch (Exception $e) {
 	echo "Error connecting to the database: " . $e->getMessage() . "<br>";
     exit();
@@ -78,7 +78,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS orders (
 
 try {
     $db->exec($sqlCreateTable);
-    echo "Table 'orders' created successfully or already exists.<br>";
+    //echo "Table 'orders' created successfully or already exists.<br>";
 } catch (Exception $e) {
     echo "Error creating table: " . $e->getMessage() . "<br>";
 }
@@ -106,7 +106,7 @@ try {
     $stmt->bindValue(':grand', $grand_total, SQLITE3_FLOAT);
     
     $stmt->execute();
-    echo "Info inserted: Order data inserted successfully.<br>";
+    //echo "Info inserted: Order data inserted successfully.<br>";
 
 } catch (Exception $e) {
 	echo "Error inserting data: " . $e->getMessage() . "<br>";
@@ -116,7 +116,7 @@ try {
 
 /* --- Display Receipt --- */
 
-print("<h2>Receipt</h2>");
+print("<h2>Thanks for your purchase!</h2>");
 print("Name: ${name}<br>");
 print("Email: ${email}<br>");
 print("Address: ${address}<br>");
@@ -130,7 +130,7 @@ print("<strong>Grand Total:</strong> $${grand_total}");
 $db->close();
 unset($db);
 
-echo "Database connection closed.<br>";
+//echo "Database connection closed.<br>";
 
 ?>
 </body>	
