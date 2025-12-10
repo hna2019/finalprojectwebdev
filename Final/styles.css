@@ -124,7 +124,7 @@ body {
     margin: 15px;
 }
 
-/* --- PHP styling --- */
+/* --- Receipt PHP styling --- */
 #receipt{
     padding-left: 20px;
     padding-top: 1px;
@@ -133,6 +133,169 @@ body {
     max-width: 400px;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+#receipt-php {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    line-height: 1.6;
+}
+
+#receipt-php h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#receipt-php p {
+    margin: 8px 0;
+}
+
+#receipt-php button {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 12px 25px;
+    background-color: #4a89ff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#receipt-php button:hover {
+    background-color: #3367d6;
+    transform: translateY(-2px);
+}
+
+
+#shopAgainBtn:hover {
+    background-color: #3367d6;
+    transform: translateY(-2px);
+}
+
+
+/* --- Sign Up Page CSS --- */
+
+#register-container {
+    display: flex;
+    justify-content: center
+}
+#signuph1 {
+    margin: 0;
+}
+
+#signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+/* Form Card */
+#signup form {
+    background: white;
+    padding: 35px 45px;
+    width: 380px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.25);
+    box-sizing: border-box;
+}
+
+/* Labels */
+#signup label {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Inputs */
+#signup input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: 0.3s ease;
+}
+
+#signup input:focus {
+    border-color: #ff5757;
+    box-shadow: 0 0 6px rgba(255,87,87,0.4);
+    outline: none;
+}
+
+/* Submit Button */
+#signup button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 14px;
+    background-color: #ff5757;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#signup button:hover {
+    background-color: #d94444;
+    transform: translateY(-2px);
+}
+
+
+#homeBtn {
+    display: block;
+    margin: 10px 0 5px 200px;
+    width: 200px;
+    padding: 20px;
+    background-color: #FFCB05;
+    color: black;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#homeBtn:hover {
+    background-color: rgb(98, 98, 41);
+    transform: translateY(-2px);
+}
+
+/* --- Sign Up PHP --- */
+
+#signup-success {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 25px 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+#signup-success p {
+    margin: 8px 0;
+}
+
+#signup-success a {
+    color: #4a89ff;
+    text-decoration: none;
+}
+
+#signup-success a:hover {
+    text-decoration: underline;
+}
+
 
 /* --- Media Queries --- */
 
@@ -193,6 +356,19 @@ body {
         margin-bottom: 10px;
         position: relative;
     } 
+    #homeBtn {
+        display: block;
+        margin: 10px 0 5px;
+        width: 200px;
+        padding: 20px;
+        background-color: #FFCB05;
+        color: black;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
 }
 @media (min-width: 768px) {
     .svg {
