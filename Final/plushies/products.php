@@ -115,7 +115,7 @@ try {
 /* --- */
 
 /* --- Display Receipt --- */
-
+print("<div id='receipt-php'>");
 print("<h2>Thanks for your purchase!</h2>");
 print("Name: ${name}<br>");
 print("Email: ${email}<br>");
@@ -126,7 +126,10 @@ print("Credit card: ${maskedCredit}<br>");
 print("Date: ${date}<br><br>");
 print("<strong>Sub Total:</strong> $${subtotal}<br>");
 print("<strong>Grand Total:</strong> $${grand_total}");
-
+print("<div style='text-align:center; margin-top: 20px;'>");
+print("<button id='shopAgainBtn' onclick=\"window.location.href='products.html'\">Shop Again</button>");
+print("</div>");
+print("</div>");
 $db->close();
 unset($db);
 

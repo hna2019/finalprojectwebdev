@@ -1,3 +1,26 @@
+// Search JS
+
+const search = document.getElementById("search");
+const searchInput = document.getElementById("searchinput");
+
+search.addEventListener("submit", function(event) {
+
+    searchInput.style.backgroundColor = "";
+
+    // makes sure user entered something
+    if (!searchInput.value.trim()) {
+        event.preventDefault();
+        alert("Please enter a search term");
+        searchInput.focus();
+        searchInput.style.backgroundColor = "red";
+        return;
+    }
+
+});
+
+
+// SHOPPING CART JS
+
 const prices = {
     pikachu: 18.00,
     charmander: 15.00,
@@ -62,13 +85,7 @@ function total() {
 }
 
 form.addEventListener("submit", function(event){
-    // event.preventDefault();
-    const receiptHTML = receipt(event);
-    if (!receiptHTML) return;
-    //const receiptWindow = window.open("", "_blank");
-    //receiptWindow.document.write(receiptHTML);
-    //receiptWindow.document.close();
-   
+    receipt(event);
 });
 
 function receipt(event){
@@ -128,76 +145,6 @@ function receipt(event){
         credit.style.backgroundColor = "red";
         return;
     }
-
-    let qPikachu = parseInt(q0.value);
-    if (isNaN(qPikachu)){
-        qPikachu = 0;
-    }
-
-    let qCharmander = parseInt(q1.value);
-    if (isNaN(qCharmander)){
-        qCharmander = 0;
-    }
-    let qBulbasaur = parseInt(q2.value);
-     if (isNaN(qBulbasaur)){
-        qBulbasaur = 0;
-    }
-    let qSquirtle = parseInt(q3.value);
-     if (isNaN(qSquirtle)){
-        qSquirtle = 0;
-    }
-
-    let shippingCost = 0;
-    if (shipping.checked){
-        shippingCost = prices.shipping;
-    } else{
-        shippingCost = prices.willcall;
-    }
-
-    const subtotalPikachu = qPikachu * prices.pikachu;
-    const subtotalCharmander = qCharmander * prices.charmander;
-    const subtotalBulbasaur = qBulbasaur * prices.bulbasaur;
-    const subtotalSquirtle = qSquirtle * prices.squirtle;
-    const totalPrice = subtotalPikachu + subtotalCharmander + subtotalBulbasaur + subtotalSquirtle + shippingCost;
-
-    const maskedCredit = "************" + credit.value.slice(-4);
-
-    const date = new Date();
-
-    const receiptHTML = 
-    `
-    <!doctype html>
-    <html lang="en-us">
-        <head>
-            <meta charset="utf-8">
-            <title>Receipt</title>
-            <style>
-                body{
-                    padding-left: 20px;
-                    padding-top: 1px;
-                    padding-bottom: 20px;
-                    border-radius: 10px;
-                    max-width: 400px;
-                    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-                }
-            </style>
-        </head>
-        <body>
-            <h2>Receipt</h2>
-            Name: ${name.value}<br>
-            Email: ${email.value}<br>
-            Address: ${address.value}<br>
-            Phone number: ${phone.value}<br>
-            Zip code: ${zip.value}<br>
-            Credit card: ${maskedCredit}<br>
-            Date: ${date.toLocaleString()}<br><br>
-            <strong>Sub Total:</strong> $${subtotalPikachu + subtotalCharmander + subtotalBulbasaur + subtotalSquirtle}<br>
-            <strong>Grand Total:</strong> $${totalPrice}
-
-        </body>
-    </html>
-    `;
-    return receiptHTML;
 }
 
 form.addEventListener("reset", function(){
@@ -212,3 +159,4 @@ form.addEventListener("reset", function(){
     grandTotal.innerText = "0.00";
     shipping.checked = false;
 });
+
