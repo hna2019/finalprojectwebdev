@@ -1,4 +1,3 @@
-// useful variables for rest of code
 let difficulty = "normal";
 let maxSelection = 3;
 let playerTeam = [];
@@ -7,8 +6,6 @@ let currentRound = 0;
 let currentWinStreak = parseInt(localStorage.getItem("currentWinStreak") || "0");
 let highestWinStreak = parseInt(localStorage.getItem("highestWinStreak") || "0");
 
-
-// Types and what they're strong against
 const typeAdvantages = {
     fire: ["grass"],
     water: ["fire"],
@@ -17,8 +14,6 @@ const typeAdvantages = {
     flying: ["grass", "fighting"],
     fighting: ["rock"]
 };
-
-// DOM elements put into variables
 let winSound = new Audio("images/correct.wav");
 let loseSound = new Audio("images/wrong.wav");
 let gameStart = document.getElementById("gameStart");
@@ -39,7 +34,6 @@ let difficultyBtns = document.querySelectorAll(".difficultyBtn");
 let playerDisabled = [];
 let opponentDisabled = [];
 
-// set event handler for difficulty buttons
 difficultyBtns.forEach(function(btn) {
     btn.addEventListener("click", function() {
         difficulty = btn.dataset.difficulty;
@@ -47,7 +41,6 @@ difficultyBtns.forEach(function(btn) {
     });
 });
 
-// set up game based on difficulty selected
 function startSelection() {
     gameStart.style.display = "none";
     selectionScreen.style.display = "flex";
@@ -80,7 +73,6 @@ function startSelection() {
     }
 }
 
-// allow player to choose what types they bring into battle and update screen to show choices
 function selectType(type) {
     if (playerTeam.length >= maxSelection) return;
     playerTeam.push(type);
@@ -96,7 +88,6 @@ function updateSelectedDisplay() {
 }
 confirmBtn.addEventListener("click", startBattle);
 
-// begin battle with selected types
 function startBattle() {
     selectionScreen.style.display = "none";
     battleScreen.style.display = "flex";
@@ -109,7 +100,7 @@ function startBattle() {
     } else {
         types = ["fire", "water", "grass"];
     }
-    // opponent chooses random types from selection
+
     opponentTeam = [];
     for (var i = 0; i < maxSelection; i++) {
         var randType = types[parseInt(Math.random() *types.length)];
@@ -119,8 +110,6 @@ function startBattle() {
     renderTeams();
     roundResult.textContent = "";
 }
-
-// show each team's types by making images for them
 function renderTeams() {
     opponentDiv.innerHTML = "";
     for (var i = 0; i < opponentTeam.length; i++) {
@@ -143,8 +132,6 @@ function renderTeams() {
         playerAttackDiv.appendChild(img);
     }
 }
-
-// player clicks a type and then algorithm picks a random type from what they have available. Type advantage wins
 function playerAttack(idx, imgElement) {
     if (playerDisabled.length >= maxSelection || opponentDisabled.length >= maxSelection){
         return;
@@ -203,7 +190,6 @@ function playerAttack(idx, imgElement) {
     }
 }
 
-// Make the type unclickable if you lost a battle with it
 function disableType(img) {
     if (img.src.indexOf("x.png") === -1) {
         img.src = "images/x.png";
@@ -211,8 +197,6 @@ function disableType(img) {
     }
 }
 
-
-// End game when opponent is out of pokemon or you're out of pokemon before opponent
 function endGame() {
     battleScreen.style.display = "none";
     gameEnd.style.display = "flex";
@@ -237,7 +221,6 @@ function endGame() {
     renderLeaderboard();
 }
 
-// bring up leaderboard from local storage
 function getLeaderboard() {
     var stored = localStorage.getItem("pokemonLeaderboard");
     if (stored) {
@@ -246,8 +229,6 @@ function getLeaderboard() {
     return [];
 }
 
-
-// update leaderboard if your winstreak is higher than the top 3 players on the leaderboard
 function updateLeaderboard(score) {
     if (score <= 0) return;
 
@@ -273,8 +254,6 @@ function updateLeaderboard(score) {
 
     localStorage.setItem("pokemonLeaderboard", JSON.stringify(topScores));
 }
-
-// create leaderboard elements and show them
 function renderLeaderboard() {
     leaderboardList.innerHTML = "";
     var leaderboard = getLeaderboard();
@@ -285,8 +264,6 @@ function renderLeaderboard() {
         leaderboardList.appendChild(li);
     }
 }
-
-// Play again
 restartBtn.addEventListener("click", function() {
     location.reload();
 });
