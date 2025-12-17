@@ -435,7 +435,6 @@ body {
     /* --- SVG --- */
     #homeBtn {
         display: block;
-        margin: 10px 0 5px;
         width: 200px;
         padding: 20px;
         background-color: #FFCB05;
