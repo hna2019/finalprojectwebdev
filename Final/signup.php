@@ -9,7 +9,7 @@
 
 <?php
 // step 1: set the path to your databases folder
-$path = "/home/kd2684/databases";
+$path = "/home/hna2019/databases";
 
 // step 2: connect to SQLite3 database
 $db = new SQLite3($path . '/users.db');
@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS users (
     firstName TEXT NOT NULL,
     lastName TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
-    phone TEXT NOT NULL
+    phone TEXT NOT NULL,
+    password TEXT NOT NULL
 );";
 $db->exec($sqlCreateTable);
 
@@ -30,19 +31,23 @@ $firstName = $_POST['firstName'] ?? '';
 $lastName = $_POST['lastName'] ?? '';
 $email = $_POST['email'] ?? '';
 $phone = $_POST['phone'] ?? '';
+$password = $_POST['password'] ?? '';
 
-if (empty($firstName) || empty($lastName) || empty($email) || empty($phone)) {
+if (empty($firstName) || empty($lastName) || empty($email) || empty($phone) || empty($password)) {
     die("Please fill in all required fields.");
 }
 
 // step 5: insert user into database
-$sqlInsert = "INSERT INTO users (firstName, lastName, email, phone)
-              VALUES (:firstName, :lastName, :email, :phone)";
+$sqlInsert = "
+INSERT INTO users (firstName, lastName, email, phone, password)
+VALUES (:firstName, :lastName, :email, :phone, :password)
+";
 $stmt = $db->prepare($sqlInsert);
 $stmt->bindValue(':firstName', $firstName, SQLITE3_TEXT);
 $stmt->bindValue(':lastName', $lastName, SQLITE3_TEXT);
 $stmt->bindValue(':email', $email, SQLITE3_TEXT);
 $stmt->bindValue(':phone', $phone, SQLITE3_TEXT);
+$stmt->bindValue(':password', $password, SQLITE3_TEXT);
 
 $result = $stmt->execute();
 

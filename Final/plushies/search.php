@@ -14,7 +14,7 @@ print("<div id = 'header'>Search Results</div>");
 $search_query = $_POST['search'];
 
 try {
-	$path = "/home/kd2684/databases";
+	$path = "/home/hna2019/databases";
 	$db = new SQLite3($path . '/plushies.db');
 } 
 

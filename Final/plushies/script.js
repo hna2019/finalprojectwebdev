@@ -129,9 +129,10 @@ function receipt(event){
         phone.style.backgroundColor = "red";
         return;
     }
-    if (!zip.value){
+    const zipPattern = /^\d{5}$/;
+    if (!zipPattern.test(zip.value)) {
         event.preventDefault();
-        alert("Zip code is required");
+        alert("Zip code must be exactly 5 digits");
         zip.focus();
         zip.select();
         zip.style.backgroundColor = "red";

@@ -4,6 +4,7 @@ const firstName = document.getElementById("firstName");
 const lastName = document.getElementById("lastName");
 const email = document.getElementById("email");
 const phone = document.getElementById("phone");
+const password = document.getElementById("password");
 
 signupForm.addEventListener("submit", function(event) {
 
@@ -12,6 +13,7 @@ signupForm.addEventListener("submit", function(event) {
     lastName.style.backgroundColor = "";
     email.style.backgroundColor = "";
     phone.style.backgroundColor = "";
+    password.style.backgroundColor = "";
 
     // --- Validation like in assignment 6 and products JS---
     if (!firstName.value.trim()) {
@@ -48,6 +50,15 @@ signupForm.addEventListener("submit", function(event) {
         email.style.backgroundColor = "red";
         return;
     }
+
+    if (!password.value.trim()) {
+        event.preventDefault();
+        alert("Input a Password");
+        password.focus();
+        password.style.backgroundColor = "red";
+        return;
+    }
+
 
     if (!phone.value.trim()) {
         event.preventDefault();

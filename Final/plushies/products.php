@@ -47,7 +47,7 @@ $date = date("Y-m-d H:i:s");
 /* --- SQL --- */
 
 try {
-	$path = "/home/kd2684/databases";
+	$path = "/home/hna2019/databases";
 	$db = new SQLite3($path . '/orders.db'); //SUBMIT THIS PATH
 	//$db = new SQLite3('orders.db'); //FOR TESTING PURPOSES ONLY
 	//echo "Successfully connected to the orders.db <br>";

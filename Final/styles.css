@@ -372,6 +372,12 @@ body {
     text-decoration: underline;
 }
 
+#login-error {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
 
 /* --- Media Queries --- */
 
